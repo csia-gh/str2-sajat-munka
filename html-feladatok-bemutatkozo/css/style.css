@@ -174,7 +174,9 @@ a {
 
 /* section-works */
 .section-works,
-.section-gallery {
+.section-gallery,
+.section-about,
+.section-contact {
     padding: 50px 0;
     background: #003566;
     color: #EFF6EE;
@@ -185,7 +187,8 @@ a {
     text-align: center;
     font-weight: 400;
     margin-bottom: 50px;
-    color: #000814;
+    color: #ffc300;
+    letter-spacing: 2px;
 }
 
 .works {
@@ -216,8 +219,8 @@ a {
 .work .desc h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    font-weight: 400;
-    color: #ffc300;
+    font-weight: 600;
+    color: #000814;
     letter-spacing: 2px;
 }
 
@@ -248,7 +251,70 @@ a {
 }
 
 
+/* section about */
+.section-about .content {
+    display: flex;
+    flex-direction: column;
+}
 
+.section-about img {
+    width: 100%;
+}
+
+.section-about .image {
+    margin-bottom: 30px;
+}
+
+/* form */
+.contact-me-title {
+    margin-bottom: 10px !important;
+}
+
+.contact-me-title+p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+}
+
+textarea {
+    height: 200px;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #f7c08a;
+}
+
+.btn {
+    display: inline-block;
+    font-size: 18px;
+    color: #000814;
+    background: #ffc300;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(120%);
+}
 
 @media (min-width: 580px) {
     #navbar .container {
@@ -287,6 +353,35 @@ a {
     .gallery>div {
         max-width: 300px;
     }
+
+    /* section about */
+    .section-about .text-content>p {
+        font-size: 120%;
+    }
+
+
+    .contact-form {
+        max-width: 600px;
+        margin: auto;
+    }
+
+
+}
+
+@media (min-width: 650px) {
+    .section-about .content {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .section-about .image {
+        width: 30%;
+    }
+
+    .section-about .text-content {
+        width: 60%;
+    }
+
 }
 
 @media (min-width: 990px) {
@@ -318,5 +413,14 @@ a {
         text-align: left;
         font-weight: 600;
         margin-bottom: 100px;
+    }
+
+    .contact-me-title+p {
+        text-align: left;
+    }
+
+    .contact-form {
+        margin-left: 0;
+        margin-right: auto;
     }
 }
