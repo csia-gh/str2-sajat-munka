@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>js-1-feladatok-modal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      background: #ccc;
+      border: 1px solid #777;
+      padding: 2rem;
+      margin: 100px auto;
+    }
+
+    .btn {
+      color: #000;
+      background-color: #2196f3;
+      border: none;
+      display: inline-block;
+      padding: 8px 16px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn:hover,
+    .btn:active {
+      filter: brightness(120%);
+    }
+
+    .btn--pos {
+      background: green;
+      color: #fff;
+    }
+
+    .btn--neg {
+      background: red;
+      color: #fff;
+    }
+
+    .backdrop {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .backdrop--open {
+      opacity: 1;
+    }
+
+    .modal {
+      position: fixed;
+      z-index: 200;
+      background: #fff;
+      width: 100%;
+      padding: 1rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); 
+      display: none;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+    .modal--open {
+      opacity: 1;
+    }
+
+    .modal__close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      transform: scale(1.5);
+      transform-origin: top right;
+      cursor: pointer;
+    }
+
+    .modal__close:hover {
+      transform: scale(1.6);
+    }
+
+    .modal__footer {
+      text-align: right;
+    }
+
+    @media only screen and (min-width: 561px) {
+      .modal {
+        width: 50%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="backdrop"></div>
+  <div class="modal">
+    <header>
+      <h2>Modal</h2>
+      <a class="modal__close close-modal">X<a>
+    </header>
+    <div>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quos corporis commodi quisquam earum sapiente
+        rerum atque mollitia cum in natus ex velit distinctio repellendus ut voluptas, itaque dolor consequuntur magnam
+        aliquam debitis harum. Impedit, voluptatem qui? Hic maxime, dolore veniam praesentium repellat sint inventore
+        nobis mollitia exercitationem, officia ut.</p>
+    </div>
+    <footer class="modal__footer">
+      <button class="btn btn--pos close-modal">Okey</button>
+      <button class="btn btn--neg close-modal">Cancel</button>
+    </footer>
+  </div>
+  <div class="container">
+    <h1>js-1-feladatok-modal</h1>
+    <button id="openBtn" class="btn">Open Modal</button>
+  </div>
+
+  <script>
+    let openBtn = document.getElementById('openBtn');
+    let backdrop = document.querySelector('.backdrop')
+    let modal = document.querySelector('.modal')
+    let closeBtns = document.querySelectorAll('.close-modal')
+
+    function openModal() {
+      modal.style.display = 'block'
+      backdrop.style.display = 'block'
+
+      setTimeout(() => {
+        backdrop.classList.add('backdrop--open')
+        modal.classList.add('modal--open')
+      }, 50)
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('backdrop--open')
+      modal.classList.remove('modal--open')
+
+      setTimeout(() => {
+        modal.style.display = 'none'
+        backdrop.style.display = 'none'
+      }, 350)
+    }
+
+    openBtn.addEventListener('click', openModal)
+    backdrop.addEventListener('click', closeModal)
+    closeBtns.forEach(closeBtn => closeBtn.addEventListener('click', closeModal))
+  </script>
+</body>
+
+</html>
