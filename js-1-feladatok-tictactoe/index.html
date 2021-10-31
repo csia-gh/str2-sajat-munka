@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="./style.css" />
+		<title>TicTacToe360</title>
+	</head>
+	<body>
+		<h1>Tic-tac-toe</h1>
+		<div class="playground">
+			<div data-cell="0" data-row="0" class="cell"></div>
+			<div
+				data-cell="1"
+				data-row="0"
+				class="cell border-left border-right"
+			></div>
+			<div data-cell="2" data-row="0" class="cell"></div>
+			<div
+				data-cell="0"
+				data-row="1"
+				class="cell border-top border-bottom"
+			></div>
+			<div
+				data-cell="1"
+				data-row="1"
+				class="cell border-left border-right border-top border-bottom"
+			></div>
+			<div
+				data-cell="2"
+				data-row="1"
+				class="cell border-top border-bottom"
+			></div>
+			<div data-cell="0" data-row="2" class="cell"></div>
+			<div
+				data-cell="1"
+				data-row="2"
+				class="cell border-left border-right"
+			></div>
+			<div data-cell="2" data-row="2" class="cell"></div>
+		</div>
+
+		<div class="instructions">
+			<div class="message">Let's play!</div>
+			<button class="btn">Start Game</button>
+		</div>
+		<script src="./script.js"></script>
+	</body>
+</html>

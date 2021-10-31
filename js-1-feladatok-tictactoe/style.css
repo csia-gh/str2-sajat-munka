@@ -1,0 +1,98 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	margin: 1rem;
+	text-align: center;
+	color: #528abb;
+}
+
+.playground {
+	margin: 20px auto;
+	background-color: #528abb;
+	width: 90vw;
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 5%;
+	overflow: hidden;
+}
+
+.cell {
+	display: inline-block;
+	flex-basis: 30vw;
+	padding: 1rem;
+	height: 30vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: calc(15vw);
+	color: #fff;
+	user-select: none;
+	cursor: not-allowed;
+}
+.pointer .cell {
+	cursor: pointer;
+}
+.cell:hover {
+	background-color: #386c99;
+}
+
+.border-left {
+	border-left: 1px solid #fff;
+}
+.border-right {
+	border-right: 1px solid #fff;
+}
+.border-top {
+	border-top: 1px solid #fff;
+}
+.border-bottom {
+	border-bottom: 1px solid #fff;
+}
+
+.instructions {
+	width: 100%;
+	text-align: center;
+}
+.message {
+	text-align: center;
+	font-size: 2rem;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.btn {
+	display: inline-block;
+	padding: 8px 16px;
+	margin-bottom: 50px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	border-radius: 16px;
+	border: 1px solid olivedrab;
+	color: #000;
+	background-color: #fff;
+}
+.btn:hover {
+	-webkit-box-shadow: inset 1px 1px 10px #333;
+	-moz-box-shadow: inset 1px 1px 10px #333;
+	box-shadow: inset 1px 1px 10px #333;
+}
+
+@media only screen and (min-width: 600px) {
+	.playground {
+		width: 405px;
+	}
+	.cell {
+		flex-basis: calc(405px / 3);
+		height: calc(405px / 3);
+		font-size: 5rem;
+	}
+}
