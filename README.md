@@ -1,5 +1,8 @@
 # str2-sajat-munka
 
+js-1-feladatok-tictactoe:
+https://condescending-hoover-9e0253.netlify.app/
+
 js-1-feladatok-modal:
 https://modest-cray-e6207e.netlify.app/
 
