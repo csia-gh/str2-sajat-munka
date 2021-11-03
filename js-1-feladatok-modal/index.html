@@ -103,6 +103,10 @@
     .modal__close:active {
       filter: brightness(110%);
     }
+    
+    .modal__close::focus-visible {
+      outline: -webkit-focus-ring-color auto 1px;
+    }
 
     .modal__footer {
       text-align: right;
