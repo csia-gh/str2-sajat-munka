@@ -103,11 +103,6 @@
     .modal__close:active {
       filter: brightness(110%);
     }
-    
-    .modal__close:focus-visible,
-    .modal__close:focus{
-      outline: -webkit-focus-ring-color auto 1px;
-    }
 
     .modal__footer {
       text-align: right;
@@ -126,7 +121,7 @@
   <div class="modal">
     <header>
       <h2>Modal</h2>
-      <a class="modal__close close-modal" tabindex="0" onkeydown="if(event.keyCode==13){closeModal()}">X</a>
+      <a class="modal__close close-modal" tabindex="0">X<a>
     </header>
     <div>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias quos corporis commodi quisquam earum sapiente
@@ -146,33 +141,37 @@
 
   <script>
     let openBtn = document.getElementById('openBtn');
-    let backdrop = document.querySelector('.backdrop')
-    let modal = document.querySelector('.modal')
-    let closeBtns = document.querySelectorAll('.close-modal')
+    let backdrop = document.querySelector('.backdrop');
+    let modal = document.querySelector('.modal');
+    let closeBtns = document.querySelectorAll('.close-modal');
 
     function openModal() {
-      modal.style.display = 'block'
-      backdrop.style.display = 'block'
+      modal.style.display = 'block';
+      backdrop.style.display = 'block';
 
       setTimeout(() => {
-        backdrop.classList.add('backdrop--open')
-        modal.classList.add('modal--open')
+        backdrop.classList.add('backdrop--open');
+        modal.classList.add('modal--open');
       }, 50)
     }
 
     function closeModal() {
-      backdrop.classList.remove('backdrop--open')
-      modal.classList.remove('modal--open')
+      backdrop.classList.remove('backdrop--open');
+      modal.classList.remove('modal--open');
 
       setTimeout(() => {
-        modal.style.display = 'none'
-        backdrop.style.display = 'none'
+        modal.style.display = 'none';
+        backdrop.style.display = 'none';
       }, 350)
     }
 
-    openBtn.addEventListener('click', openModal)
-    backdrop.addEventListener('click', closeModal)
-    closeBtns.forEach(closeBtn => closeBtn.addEventListener('click', closeModal))
+    openBtn.addEventListener('click', openModal);
+    backdrop.addEventListener('click', closeModal);
+    closeBtns.forEach(closeBtn => closeBtn.addEventListener('click', closeModal));
+    closeBtns.forEach(closeBtn => closeBtn.addEventListener('keydown', () => {
+      if(event.keyCode==13) {closeModal()}
+    }));
+    
   </script>
 </body>
 
