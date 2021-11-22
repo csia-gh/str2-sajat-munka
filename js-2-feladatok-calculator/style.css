@@ -117,8 +117,8 @@ button#equal {
 }
 .operator {
   font-size: 0.4em;
-  margin-top: -4px;
   margin-right: 2px;
+  margin-bottom: 2px;
   color: red;
 }
 
@@ -152,10 +152,17 @@ button#equal {
   }
 
   #output {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   #output.too-long {
     font-size: 2rem;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .operator {
+    margin-bottom: 0px;
+    margin-top: -4px;
   }
 }
