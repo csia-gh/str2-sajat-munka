@@ -1,5 +1,8 @@
 # str2-sajat-munka
 
+js-2-feladatok-calculator:
+https://youthful-torvalds-495dbd.netlify.app/
+
 js-2-feladatok-clock:
 https://elastic-jennings-3ef9cd.netlify.app/
 
