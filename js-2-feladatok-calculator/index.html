@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div id="output"></div>
+      <div class="flex-container operators">
+        <button title="addition" data-operation="+">+</button>
+        <button title="subtraction" data-operation="-">-</button>
+        <button title="division" data-operation="x">x</button>
+        <button title="multiplication" data-operation="÷">÷</button>
+      </div>
+      <div class="flex-container">
+        <div class="flex-container nums">
+          <button data-num="7">7</button>
+          <button data-num="8">8</button>
+          <button data-num="9">9</button>
+          <button data-num="4">4</button>
+          <button data-num="5">5</button>
+          <button data-num="6">6</button>
+          <button data-num="1">1</button>
+          <button data-num="2">2</button>
+          <button data-num="3">3</button>
+          <button data-num="0">0</button>
+          <button id="decSep">.</button>
+          <button id="clear">C</button>
+        </div>
+        <button id="equal">=</button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

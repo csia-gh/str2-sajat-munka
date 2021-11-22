@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #83d2e3;
+  padding: 1rem;
+  text-align: center;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+h2 {
+  font-size: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.timer {
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  transform: scale(1) translateY(0);
+  z-index: 100;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 0.2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.card {
+  perspective: 1000px;
+  background-color: transparent;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flip .card-inner {
+  transform: rotateX(-180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #f3f3f3;
+  background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36 0H0v36h36V0zM15.126 2H2v13.126c.367.094.714.24 1.032.428L15.554 3.032c-.188-.318-.334-.665-.428-1.032zM18 4.874V18H4.874c-.094-.367-.24-.714-.428-1.032L16.968 4.446c.318.188.665.334 1.032.428zM22.874 2h11.712L20 16.586V4.874c1.406-.362 2.512-1.468 2.874-2.874zm10.252 18H20v13.126c.367.094.714.24 1.032.428l12.522-12.522c-.188-.318-.334-.665-.428-1.032zM36 22.874V36H22.874c-.094-.367-.24-.714-.428-1.032l12.522-12.522c.318.188.665.334 1.032.428zm0-7.748V3.414L21.414 18h11.712c.362-1.406 1.468-2.512 2.874-2.874zm-18 18V21.414L3.414 36h11.712c.362-1.406 1.468-2.512 2.874-2.874zM4.874 20h11.712L2 34.586V22.874c1.406-.362 2.512-1.468 2.874-2.874z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover .card-front {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+
+.card-back {
+  background-color: #2980b9;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards i {
+  transform: rotateX(180deg);
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.animate__heartBeat .card {
+  -webkit-animation-name: heartBeat;
+  animation-name: heartBeat;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 2;
+  animation-delay: 0.8s;
+}
+
+.animate__heartBeat .timer {
+  transform: scale(3.5) translateY(100%);
+  color: gold;
+  transition: all 0.3s ease-in-out 0.5s;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  border: 3px solid gold;
+}
+
+@-webkit-keyframes heartBeat {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  14% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  28% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  42% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes heartBeat {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  14% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  28% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  42% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  .timer {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .cards {
+    grid-template-rows: repeat(2, 160px);
+    grid-gap: 1rem;
+  }
+
+  .cards i {
+    font-size: 2.5rem;
+  }
+
+  .animate__heartBeat .timer {
+    transform: scale(3.5) translateY(110%);
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .timer {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cards {
+    grid-template-rows: repeat(2, 180px);
+  }
+
+  .cards i {
+    font-size: 3.5rem;
+  }
+}

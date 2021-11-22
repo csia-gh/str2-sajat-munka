@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Cyberverse';
+  src: url('./Fonts/Cyberverse.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#clock {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  padding: 0.5rem;
+}
+
+#display {
+  font-size: 3rem;
+  color: #3dc3fa;
+  font-family: 'Cyberverse';
+  letter-spacing: 3px;
+}
+
+@media screen and (min-width: 500px) {
+  #display {
+    font-size: 5rem;
+  }
+}
