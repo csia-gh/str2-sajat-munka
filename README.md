@@ -1,5 +1,8 @@
 # str2-sajat-munka
 
+js-2-feladatok-clock:
+https://elastic-jennings-3ef9cd.netlify.app/
+
 js-1-feladatok-tictactoe:
 https://condescending-hoover-9e0253.netlify.app/
 
