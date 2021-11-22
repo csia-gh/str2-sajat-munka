@@ -1,13 +1,22 @@
 # str2-sajat-munka
 
+js-3-feladatok-matching-game:
+https://js-3-feladatok-matching-game.netlify.app/
+
+js-2-feladatok-calculator:
+https://js-2-feladatok-calculator.netlify.app/
+
+js-2-feladatok-clock:
+https://js-2-feladatok-clock.netlify.app/
+
 js-1-feladatok-tictactoe:
-https://condescending-hoover-9e0253.netlify.app/
+https://js-1-feladatok-tictactoe.netlify.app/
 
 js-1-feladatok-modal:
-https://modest-cray-e6207e.netlify.app/
+https://js-1-feladatok-modal.netlify.app/
 
 css-feladatok-admin:
-https://fervent-curie-e5d8dd.netlify.app/
+https://css-feladatok-admin.netlify.app/
 
 html-feladatok-bemutatkozo:
-https://cocky-noyce-ed9329.netlify.app/
+https://html-feladatok-bemutatkozo.netlify.app/
