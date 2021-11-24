@@ -25,7 +25,7 @@
 #display {
   font-size: 3rem;
   color: #3dc3fa;
-  font-family: 'Cyberverse';
+  font-family: 'Cyberverse', sans-serif;
   letter-spacing: 3px;
 }
 
