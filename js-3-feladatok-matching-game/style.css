@@ -126,7 +126,7 @@ h2 {
 }
 
 .animate__heartBeat .timer {
-  transform: scale(2) translateY(150%);
+  transform: scale(2) translateY(175%);
   color: gold;
   transition: all 0.3s ease-in-out 0.5s;
   background-color: #fff;
