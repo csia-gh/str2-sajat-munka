@@ -62,7 +62,7 @@ h2 {
 }
 
 .card.match {
-  animation: animMatch 1.5s linear 1s;
+  animation: animMatch 1s linear 1s;
 }
 
 
@@ -126,7 +126,7 @@ h2 {
 }
 
 .animate__heartBeat .timer {
-  transform: scale(3.5) translateY(100%);
+  transform: scale(2) translateY(100%);
   color: gold;
   transition: all 0.3s ease-in-out 0.5s;
   background-color: #fff;
