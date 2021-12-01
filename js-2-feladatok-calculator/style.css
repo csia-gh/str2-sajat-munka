@@ -57,7 +57,7 @@ body {
 }
 
 #output.too-long {
-  min-height: 4.5rem;
+  min-height: 5.5rem;
   height: auto;
   font-size: 1.6rem;
   overflow-wrap: break-word;
