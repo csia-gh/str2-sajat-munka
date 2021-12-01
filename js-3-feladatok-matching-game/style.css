@@ -57,7 +57,15 @@ h2 {
 .card {
   perspective: 1000px;
   background-color: transparent;
+  border: 1px solid transparent;
+  transition: border-color .2s ease;
 }
+
+.card.match {
+  animation: animMatch 1s linear;
+}
+
+
 
 .card-inner {
   width: 100%;
@@ -177,6 +185,21 @@ h2 {
   70% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@keyframes animMatch {
+  0% {
+    background-color: transparent;
+  }
+  25% {
+      background-color: gold;
+  }
+    75% {
+      background-color: gold;
+  }
+    100% {
+      background-color: transparent;
   }
 }
 
