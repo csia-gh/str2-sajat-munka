@@ -58,7 +58,7 @@ h2 {
   perspective: 1000px;
   background-color: transparent;
   border: 1px solid transparent;
-  transition: border-color .2s ease;
+  transition: border-color .2s ease .5s;
 }
 
 .card.match {
