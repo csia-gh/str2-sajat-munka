@@ -87,6 +87,8 @@ const checkPairs = () => {
     console.log('match');
     card1.removeEventListener('click', handleCardClick);
     card2.removeEventListener('click', handleCardClick);
+    card1.classList.add('match');
+    card2.classList.add('match');
     let iTag = card1ITag.className.split(' ')[1];
     delete drawnedIcons[iTag];
     console.log(drawnedIcons);

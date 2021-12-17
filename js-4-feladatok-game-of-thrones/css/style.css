@@ -198,7 +198,7 @@ main {
   padding: 3rem 0.5rem 0.5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+
   flex-wrap: wrap;
   max-width: 81.25rem;
   height: 100vh;
@@ -366,14 +366,12 @@ main {
   .search-box {
     margin-top: auto;
   }
+  
+  .characters { align-items: center; }
 
   .character__name {
     font-size: 1rem;
   }
 }
 
-@media (min-height: 800px) {
-  .character-details__description {
-    max-height: none;
-  }
-}
+

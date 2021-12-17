@@ -57,7 +57,15 @@ h2 {
 .card {
   perspective: 1000px;
   background-color: transparent;
+  border: 3px solid transparent;
+  transition: border-color .2s ease;
 }
+
+.card.match {
+  animation: animMatch 1s linear 1s;
+}
+
+
 
 .card-inner {
   width: 100%;
@@ -118,7 +126,7 @@ h2 {
 }
 
 .animate__heartBeat .timer {
-  transform: scale(3.5) translateY(100%);
+  transform: scale(2) translateY(175%);
   color: gold;
   transition: all 0.3s ease-in-out 0.5s;
   background-color: #fff;
@@ -177,6 +185,21 @@ h2 {
   70% {
     -webkit-transform: scale(1);
     transform: scale(1);
+  }
+}
+
+@keyframes animMatch {
+  0% {
+    background-color: transparent;
+  }
+  25% {
+      background-color: gold;
+  }
+    75% {
+      background-color: gold;
+  }
+    100% {
+      background-color: transparent;
   }
 }
 
