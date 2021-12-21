@@ -1,0 +1,31 @@
+.custom-btn {
+  width: 100%;
+  background-color: blue;
+  padding: 0.6rem;
+  border: 2px solid blue;
+  border-radius: 0.4em;
+  font-weight: 400;
+  color: #fff;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.custom-btn:hover,
+.custom-btn:focus,
+.custom-btn:active {
+  background-color: #fff;
+  color: blue;
+}
+
+.my-icon {
+  background-color: indianred;
+  color: #fff;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2em;
+}
