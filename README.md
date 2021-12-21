@@ -1,5 +1,7 @@
 # str2-sajat-munka
 
+bs-feladatok-cards: https://bs-feladatok-cards.netlify.app/
+
 js-4-feladatok-game-of-thrones:
 https://got-js4.netlify.app/
 
