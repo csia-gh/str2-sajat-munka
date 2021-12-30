@@ -1,5 +1,7 @@
 # str2-sajat-munka
 
+bs-feladatok-checkout: https://bs-feladatok-checkout.netlify.app/
+
 bs-feladatok-login: https://bs-feladatok-login.netlify.app/
 
 bs-feladatok-cards: https://bs-feladatok-cards.netlify.app/
