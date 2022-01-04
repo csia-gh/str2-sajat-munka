@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>js-5-feladatok-zaro-projekt</title>
+  </head>
+  <body id="body">
+    <header>
+      <h1>js-5-feladatok-zaro-projekt</h1>
+    </header>
+    <main>
+      <section>
+        <div class="container messages"></div>
+      </section>
+      <section>
+        <div class="container">
+          <form class="form">
+            <h2>Create a New User</h2>
+            <div class="form-control">
+              <label for="name">Name</label>
+              <input type="text" id="name" autocomplete="off" />
+            </div>
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="email" id="email" autocomplete="off" />
+            </div>
+            <div class="form-control">
+              <label for="address">Address</label>
+              <input type="text" id="address" autocomplete="off" />
+            </div>
+            <div class="form__btns">
+              <button class="btn btn--create submit-btn" type="button">
+                Submit and create new user
+                <i class="fas fa-plus-circle"></i>
+              </button>
+              <button type="button" class="btn back">
+                Back <i class="fas fa-backward"></i>
+              </button>
+            </div>
+          </form>
+          <button class="btn open-form">
+            Create a new user <i class="fas fa-plus-circle"></i>
+          </button>
+        </div>
+      </section>
+      <section>
+        <div class="container container--table">
+          <table class="table">
+            <thead>
+              <tr>
+                <th id="th-ID">ID <i class="fas fa-sort"></i></th>
+                <th id="th-name">Name <i class="fas fa-sort"></i></th>
+                <th>Email</th>
+                <th>Address</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#body"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
