@@ -10,7 +10,7 @@ class Validate {
     return re.test(email.trim());
   }
   static validateAddress(address) {
-    const re = /^[1-9]\d{0,5} [A-Z]+[a-z]*( [A-Z]+[a-z]*)*$/;
+    const re = /^\d{1,6}( [1-9]\d{0,}th)? [A-Z]+[a-z]*( [A-Z]+[a-z]*)*$/;
     return re.test(address.trim());
   }
 }
