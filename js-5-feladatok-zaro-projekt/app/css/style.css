@@ -222,6 +222,7 @@ section {
   border-radius: 0.2em;
   color: inherit;
   background: transparent;
+  width: 100%;
 }
 
 .table tr.edit input {
