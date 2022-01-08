@@ -1,0 +1,235 @@
+@font-face {
+  font-family: 'Catamaran';
+  src: url('../fonts/catamaran/Catamaran-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Muli';
+  src: url('../fonts/muli/Mulish-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+}
+p {
+  font-family: 'Muli', Helvetica, Arial, sans-serif;
+}
+
+.hr {
+  width: 5rem;
+  margin: auto;
+}
+.heart {
+  color: #dd4b39;
+}
+
+.py-extra-from-md {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  .py-extra-from-md {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.btn-custom {
+  transition: all 0.3s;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.btn-custom:hover {
+  background-color: #fdcc52;
+  border-color: #fdcc52;
+  color: #fff;
+}
+
+#main-nav {
+  transition: all 0.3s;
+}
+
+#main-nav.show-bg,
+#main-nav {
+  background-color: #fff;
+}
+
+#main-nav .navbar-brand {
+  font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  transition: color 0.3s;
+  font-size: 1.5rem;
+  color: #000;
+}
+#main-nav .navbar-brand:hover {
+  color: #e7ac4e;
+}
+
+#main-nav.show-bg .navbar-brand {
+  color: #000;
+}
+#main-nav.show-bg .navbar-brand:hover {
+  color: #e7ac4e;
+}
+@media (min-width: 768px) {
+  #main-nav {
+    background-color: transparent;
+  }
+  #main-nav .navbar-brand {
+    font-size: 2rem;
+    color: #e7ac4e;
+  }
+  #main-nav .navbar-brand:hover {
+    color: #fff;
+  }
+}
+
+#main-nav .navbar-toggler {
+  font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #000;
+  border-color: #000;
+}
+
+#main-nav .nav-link {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  transition: color 0.3s;
+  font-size: 0.8rem;
+  color: #000;
+}
+#main-nav .nav-link:hover,
+#main-nav .nav-link.active {
+  color: #fdcc52;
+}
+
+#main-nav.show-bg .nav-link {
+  color: #000;
+}
+#main-nav.show-bg .nav-link:hover,
+#main-nav.show-bg .nav-link.active {
+  color: #fdcc52;
+}
+
+@media (min-width: 768px) {
+  #main-nav .nav-link {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  #main-nav .nav-link:hover,
+  #main-nav .nav-link.active {
+    color: #fff;
+  }
+}
+
+#main-header {
+  background: url('../img/bg-pattern.png'),
+    linear-gradient(to right, #db2431, #7b4397);
+}
+
+#main-header h1 {
+  font-weight: 200;
+  font-size: 2rem;
+}
+@media (min-width: 768px) {
+  #main-header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.image-container {
+  margin: auto;
+  width: 300px;
+  position: relative;
+}
+.phone {
+  width: 100%;
+}
+.screen {
+  position: absolute;
+  width: 265px;
+  left: 18px;
+  border-radius: 3px;
+  top: 64px;
+}
+
+#discover {
+  background: linear-gradient(to right, #fdca4c, #fdc948);
+}
+
+.icon {
+  color: #a5356a;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #a5356a;
+  margin-bottom: 1.5rem;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#stop-waiting {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../img/bg-cta.jpg') no-repeat center center/cover;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  #stop-waiting h2,
+  #we h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+.social-icon {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  color: #fff;
+  margin-right: 0.5rem;
+  opacity: 0.9;
+}
+.social-icon:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.social-icon.twitter {
+  background-color: #1da1f2;
+}
+.social-icon.facebook {
+  background-color: #3b5998;
+}
+.social-icon.linkedin {
+  background-color: #0a66c2;
+}
+
+footer {
+  background-color: #222222;
+  color: #636463;
+}
+footer a {
+  cursor: pointer;
+}
