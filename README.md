@@ -2,6 +2,8 @@
 
 
 
+bs-feladatok-sitebuilding: https://bs-feladatok-sitebuilding.netlify.app/
+
 bs-feladatok-checkout: https://bs-feladatok-checkout.netlify.app/
 
 bs-feladatok-login: https://bs-feladatok-login.netlify.app/
