@@ -2,7 +2,7 @@ class Message {
   constructor(time = 5000) {
     this.time = time;
   }
-  createMsg(msg, type = 'info') {
+  createMsgElement(msg, type = 'info') {
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message');
     msgDiv.innerHTML = `${msg} <button class="msg-close-btn"><i class="fas fa-times-circle"></i></button>`;
@@ -26,27 +26,25 @@ class Message {
     return msgDiv;
   }
   deleteMessage(msg) {
-    setTimeout(() => {
+    msg.timeoutID = setTimeout(() => {
+      clearTimeout(msg.timeoutID);
       msg.remove();
     }, this.time);
   }
-  error(msg) {
-    const errorMsg = this.createMsg(msg, 'error');
-    document.body.appendChild(errorMsg);
+  createMsg(msgText, msgClass) {
+    const msg = this.createMsgElement(msgText, msgClass);
+    document.body.appendChild(msg);
     this.addEventListenerToNewlyCreatedMsgCloseBtn();
-    this.deleteMessage(errorMsg);
+    this.deleteMessage(msg);
+  }
+  error(msg) {
+    this.createMsg(msg, 'error');
   }
   success(msg) {
-    const successMsg = this.createMsg(msg, 'success');
-    document.body.appendChild(successMsg);
-    this.addEventListenerToNewlyCreatedMsgCloseBtn();
-    this.deleteMessage(successMsg);
+    this.createMsg(msg, 'success');
   }
   info(msg) {
-    const infoMsg = this.createMsg(msg, 'info');
-    document.body.appendChild(infoMsg);
-    this.addEventListenerToNewlyCreatedMsgCloseBtn();
-    this.deleteMessage(infoMsg);
+    this.createMsg(msg, 'info');
   }
   addEventListenerToNewlyCreatedMsgCloseBtn() {
     const msgCloseBtns = document.querySelectorAll('.msg-close-btn');

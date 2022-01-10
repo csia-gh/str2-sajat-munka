@@ -6,12 +6,14 @@ const msg = new Message();
 class Table {
   constructor(selector, shouldBeDisabledSelectors = []) {
     this.table = document.querySelector(selector);
+    this.tBody = this.table.querySelector('tbody');
     this.shouldBeDisabledSelectors = shouldBeDisabledSelectors;
     this.thIDSortBtn = document.querySelector('#th-ID');
     this.thNameSortBtn = document.querySelector('#th-name');
     this.nameSorted = false;
     this.idSorted = true;
     this.isEditing = false;
+    this.userObjKeys = ['id', 'name', 'emailAddress', 'address'];
     this.loadTableContent();
     this.events();
     this.inputsData = {
@@ -30,7 +32,6 @@ class Table {
       return;
     }
     const trs = [...this.table.querySelectorAll('tbody tr')];
-    const tbody = this.table.querySelector('tbody');
     if (this.idSorted) {
       trs.sort((tr1, tr2) => {
         return (
@@ -50,8 +51,8 @@ class Table {
       this.idSorted = true;
       this.nameSorted = false;
     }
-    tbody.innerHTML = '';
-    trs.forEach((tr) => tbody.appendChild(tr));
+    this.tBody.innerHTML = '';
+    trs.forEach((tr) => this.tBody.appendChild(tr));
   }
   toggleNameSort() {
     if (this.isEditing) {
@@ -59,7 +60,6 @@ class Table {
       return;
     }
     const trs = [...this.table.querySelectorAll('tbody tr')];
-    const tbody = this.table.querySelector('tbody');
     if (this.nameSorted) {
       trs.sort((tr1, tr2) => {
         return tr1
@@ -77,41 +77,62 @@ class Table {
       this.nameSorted = true;
       this.idSorted = false;
     }
-    tbody.innerHTML = '';
-    trs.forEach((tr) => tbody.appendChild(tr));
+    this.tBody.innerHTML = '';
+    trs.forEach((tr) => this.tBody.appendChild(tr));
+  }
+  changeBtns() {
+    this.tr.classList.add('edit');
+    this.tdBtns.classList.add('cancel');
+    this.inputs.forEach((input) => input.removeAttribute('disabled'));
+    this.tdBtns.innerHTML = '';
+    const saveBtn = document.createElement('button');
+    saveBtn.innerHTML = 'Save <i class="fas fa-save"></i>';
+    saveBtn.classList.add('btn');
+    saveBtn.classList.add('btn--save');
+    saveBtn.addEventListener('click', (e) => this.saveChanges(e));
+    this.tdBtns.appendChild(saveBtn);
+    const editBtn = document.createElement('button');
+    editBtn.innerHTML = 'Cancel <i class="fas fa-undo"></i>';
+    editBtn.classList.add('btn');
+    editBtn.classList.add('btn--cancel');
+    editBtn.addEventListener('click', (e) => this.handleCancel(e));
+    this.tdBtns.appendChild(editBtn);
   }
   handleEdit(e) {
     if (this.isEditing) {
       msg.info('First finish editing');
       return;
     }
+
     this.shouldBeDisabledSelectors.forEach((selector) => {
       document.querySelector(selector).setAttribute('disabled', true);
     });
-    const tr = e.target.parentElement.parentElement;
-    this.setInputListeners(tr);
-    const userId = tr.getAttribute('userid');
-    const inputs = tr.querySelectorAll('input');
-    const tdBtns = tr.querySelector('.buttons');
-    if (userId) {
-      tr.classList.add('edit');
-      tdBtns.classList.add('cancel');
-      inputs.forEach((input) => input.removeAttribute('disabled'));
-      tdBtns.innerHTML = '';
-      const saveBtn = document.createElement('button');
-      saveBtn.innerHTML = 'Save <i class="fas fa-save"></i>';
-      saveBtn.classList.add('btn');
-      saveBtn.classList.add('btn--save');
-      saveBtn.addEventListener('click', (e) => this.saveChanges(e));
-      tdBtns.appendChild(saveBtn);
-      const editBtn = document.createElement('button');
-      editBtn.innerHTML = 'Cancel <i class="fas fa-undo"></i>';
-      editBtn.classList.add('btn');
-      editBtn.classList.add('btn--cancel');
-      editBtn.addEventListener('click', (e) => this.handleCancel(e));
-      tdBtns.appendChild(editBtn);
-      this.isEditing = true;
-    }
+
+    this.setInputListenersAndSetLocals(e.target.parentElement.parentElement);
+
+    this.changeBtns();
+    this.isEditing = true;
+  }
+  setInputListenersAndSetLocals(tr) {
+    this.tr = tr;
+    this.userId = parseInt(tr.dataset.userid);
+    this.tdBtns = this.tr.querySelector('.buttons');
+    this.nameInput = tr.querySelector('.tr-name');
+    this.emailInput = tr.querySelector('.tr-emailAddress');
+    this.addressInput = tr.querySelector('.tr-address');
+    this.inputs = [this.nameInput, this.emailInput, this.addressInput];
+    this.nameInput.addEventListener('input', (e) => this.handleNameInput(e));
+    this.emailInput.addEventListener('input', (e) => this.handleEmailInput(e));
+    this.addressInput.addEventListener('input', (e) => this.handleAddressInput(e));
+  }
+  unsetLocals() {
+    this.tr = null;
+    this.userId = null;
+    this.tdBtns = null;
+    this.nameInput = null;
+    this.emailInput = null;
+    this.addressInput = null;
+    this.inputs = [];
   }
   handleDelete(e) {
     if (this.isEditing) {
@@ -119,53 +140,38 @@ class Table {
       return;
     }
     const tr = e.target.parentElement.parentElement;
-    const userId = tr.getAttribute('userid');
+    const userId = tr.dataset.userid;
+    console.log(userId);
     if (userId) {
       User.deleteUser(userId);
       tr.remove();
     }
   }
+  removeEditingClasses() {
+    this.nameInput.parentElement.classList.remove('success');
+    this.nameInput.parentElement.classList.remove('error');
+    this.emailInput.parentElement.classList.remove('error');
+    this.emailInput.parentElement.classList.remove('success');
+    this.addressInput.parentElement.classList.remove('error');
+    this.addressInput.parentElement.classList.remove('success');
+  }
+  restoreBtns() {
+    this.tr.classList.remove('edit');
+    this.inputs.forEach((input) => input.setAttribute('disabled', true));
+    this.tdBtns.remove();
+    this.tr.appendChild(this.createEditAndDelBtnTDWithEventListeners());
+
+    this.removeEditingClasses();
+
+    this.isEditing = false;
+  }
   handleCancel(e) {
     this.shouldBeDisabledSelectors.forEach((selector) => {
       document.querySelector(selector).removeAttribute('disabled');
     });
-    let tr;
-    if (e) {
-      tr = e.target.parentElement.parentElement;
-    } else {
-      tr = this.tr;
-    }
-    const userId = tr.getAttribute('userid');
-    const inputs = tr.querySelectorAll('input');
-    const tdBtns = tr.querySelector('.buttons');
-    if (userId) {
-      tr.classList.remove('edit');
-      tdBtns.classList.remove('cancel');
-      inputs.forEach((input) => input.setAttribute('disabled', true));
-      tdBtns.innerHTML = '';
-      const editBtn = document.createElement('button');
-      editBtn.innerHTML = `Edit <i class="fas fa-user-edit"></i>`;
-      editBtn.classList.add('btn');
-      editBtn.classList.add('btn--edit');
-      editBtn.addEventListener('click', (e) => this.handleEdit(e));
-      tdBtns.appendChild(editBtn);
-      const deleteBtn = document.createElement('button');
-      deleteBtn.innerHTML = `Delete <i class="fas fa-user-slash"></i>`;
-      deleteBtn.classList.add('btn');
-      deleteBtn.classList.add('btn--delete');
-      deleteBtn.addEventListener('click', (e) => this.handleDelete(e));
-      tdBtns.appendChild(deleteBtn);
-      this.isEditing = false;
-      this.nameInput.parentElement.classList.remove('success');
-      this.nameInput.parentElement.classList.remove('error');
-      this.emailInput.parentElement.classList.remove('error');
-      this.emailInput.parentElement.classList.remove('success');
-      this.addressInput.parentElement.classList.remove('error');
-      this.addressInput.parentElement.classList.remove('success');
-    }
-    this.unsetInputListeners();
+    this.restoreBtns();
+    this.unsetLocals();
   }
-
   handleNameInput(e) {
     if (!Validate.validateName(this.nameInput.value)) {
       this.nameInput.parentElement.classList.remove('success');
@@ -199,40 +205,25 @@ class Table {
       this.inputsData.Address = true;
     }
   }
-  setInputListeners(tr) {
-    this.tr = tr;
-    this.nameInput = tr.querySelector('.tr-name');
-    this.emailInput = tr.querySelector('.tr-emailAddress');
-    this.addressInput = tr.querySelector('.tr-address');
-    this.nameInput.addEventListener('input', (e) => this.handleNameInput(e));
-    this.emailInput.addEventListener('input', (e) => this.handleEmailInput(e));
-    this.addressInput.addEventListener('input', (e) => this.handleAddressInput(e));
-  }
-  unsetInputListeners() {
-    this.tr = null;
-    this.nameInput = null;
-    this.emailInput = null;
-    this.addressInput = null;
-  }
   async saveChanges(e) {
     this.handleNameInput();
     this.handleEmailInput();
     this.handleAddressInput();
-    const userId = parseInt(
-      e.target.parentElement.parentElement.querySelector('.tr-id').innerText
-    );
+
     for (let inputData in this.inputsData) {
       if (!this.inputsData[inputData]) {
         msg.error(`${inputData} is not correct`);
       }
     }
+
     if (Object.values(this.inputsData).every((value) => value)) {
       const users = await User.getUsers();
+
       for (let user of users) {
         if (
           user.name === this.nameInput.value.trim() &&
           user.emailAddress === this.emailInput.value.trim() &&
-          user.id !== userId
+          user.id !== this.userId
         ) {
           msg.error('This email address is already being used with this name');
           return;
@@ -240,20 +231,21 @@ class Table {
         if (
           user.name === this.nameInput.value.trim() &&
           user.address === this.addressInput.value.trim() &&
-          user.id !== userId
+          user.id !== this.userId
         ) {
           msg.error('This address is already being used with this name');
           return;
         }
       }
-      const updatedUser = await User.updateUser(userId, {
+
+      const updatedUser = await User.updateUser(this.userId, {
         name: this.nameInput.value.trim(),
         emailAddress: this.emailInput.value.trim(),
         address: this.addressInput.value.trim(),
       });
       this.updateTr(updatedUser);
       msg.success('Updated!');
-      this.handleCancel(false);
+      this.handleCancel();
     }
   }
   updateTr(updatedUser) {
@@ -261,72 +253,69 @@ class Table {
     this.emailInput.value = updatedUser.emailAddress;
     this.addressInput.value = updatedUser.address;
   }
-  async loadTableContent() {
-    const users = await User.getUsers();
-    const keys = ['id', 'name', 'emailAddress', 'address'];
-    const tBody = this.table.querySelector('tbody');
-    users.forEach((user) => {
-      const tr = document.createElement('tr');
-      tr.setAttribute('userid', user.id);
-      tBody.appendChild(tr);
-      keys.forEach((key) => {
-        const td = document.createElement('td');
-        if (key === 'id') {
-          td.innerText = user[key];
-          td.classList.add('tr-id');
-        } else {
-          td.innerHTML = `<input type="text" class="tr-${key}" value="${user[key]}" disabled>`;
-        }
-        tr.appendChild(td);
-      });
-      const td = document.createElement('td');
-      td.classList.add('buttons');
-      const editBtn = document.createElement('button');
-      editBtn.innerHTML = `Edit <i class="fas fa-user-edit"></i>`;
-      editBtn.classList.add('btn');
-      editBtn.classList.add('btn--edit');
-      editBtn.addEventListener('click', (e) => this.handleEdit(e));
-      td.appendChild(editBtn);
-      const deleteBtn = document.createElement('button');
-      deleteBtn.innerHTML = `Delete <i class="fas fa-user-slash"></i>`;
-      deleteBtn.classList.add('btn');
-      deleteBtn.classList.add('btn--delete');
-      deleteBtn.addEventListener('click', (e) => this.handleDelete(e));
-      td.appendChild(deleteBtn);
-      tr.appendChild(td);
-    });
-  }
-  addNewUserToDOM(newUser) {
-    const tBody = this.table.querySelector('tbody');
-    const keys = ['id', 'name', 'emailAddress', 'address'];
-    const tr = document.createElement('tr');
-    tr.setAttribute('userid', newUser.id);
-    tBody.appendChild(tr);
-    keys.forEach((key) => {
+  createAndAppendTdWithData(user, tr) {
+    this.userObjKeys.forEach((key) => {
       const td = document.createElement('td');
       if (key === 'id') {
-        td.innerText = newUser[key];
+        td.innerText = user[key];
         td.classList.add('tr-id');
       } else {
-        td.innerHTML = `<input type="text" class="tr-${key}" value="${newUser[key]}" disabled>`;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.classList.add(`tr-${key}`);
+        input.setAttribute('disabled', true);
+        input.value = user[key];
+        td.appendChild(input);
       }
       tr.appendChild(td);
     });
+  }
+  createEditAndDelBtnTDWithEventListeners(tr) {
     const td = document.createElement('td');
     td.classList.add('buttons');
+
     const editBtn = document.createElement('button');
     editBtn.innerHTML = `Edit <i class="fas fa-user-edit"></i>`;
     editBtn.classList.add('btn');
     editBtn.classList.add('btn--edit');
     editBtn.addEventListener('click', (e) => this.handleEdit(e));
     td.appendChild(editBtn);
+
     const deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = `Delete <i class="fas fa-user-slash"></i>`;
     deleteBtn.classList.add('btn');
     deleteBtn.classList.add('btn--delete');
     deleteBtn.addEventListener('click', (e) => this.handleDelete(e));
     td.appendChild(deleteBtn);
-    tr.appendChild(td);
+
+    if (tr) {
+      tr.appendChild(td);
+    } else {
+      return td;
+    }
+  }
+  async loadTableContent() {
+    const users = await User.getUsers();
+    if (users) {
+      users.forEach((user) => {
+        const tr = document.createElement('tr');
+        tr.setAttribute('data-userid', user.id);
+        this.tBody.appendChild(tr);
+
+        this.createAndAppendTdWithData(user, tr);
+        this.createEditAndDelBtnTDWithEventListeners(tr);
+      });
+    } else {
+      this.tBody.innerHTML =
+        '<tr><td colspan="5"><h3 style="padding:1rem;text-align:center;width:100%;">No data</h3></td></tr>';
+    }
+  }
+  addNewUserToDOM(newUser) {
+    const tr = document.createElement('tr');
+    tr.setAttribute('data-userid', newUser.id);
+    this.createAndAppendTdWithData(newUser, tr);
+    this.createEditAndDelBtnTDWithEventListeners(tr);
+    this.tBody.insertAdjacentElement('afterbegin', tr);
   }
 }
 

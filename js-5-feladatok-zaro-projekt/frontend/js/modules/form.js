@@ -23,9 +23,9 @@ class Form {
   events() {
     this.openFormBtn.addEventListener('click', (e) => this.openForm(e));
     this.formBackBtn.addEventListener('click', () => this.closeForm());
-    this.nameInput.addEventListener('input', (e) => this.handleNameInput(e));
-    this.emailInput.addEventListener('input', (e) => this.handleEmailInput(e));
-    this.addressInput.addEventListener('input', (e) => this.handleAddressInput(e));
+    this.nameInput.addEventListener('input', () => this.checkNameInput());
+    this.emailInput.addEventListener('input', () => this.checkEmailInput());
+    this.addressInput.addEventListener('input', () => this.checkAddressInput());
     this.formSubmitBtn.addEventListener('click', (e) => this.handleFormSubmit(e));
     this.form.addEventListener('submit', (e) => e.preventDefault());
   }
@@ -34,73 +34,76 @@ class Form {
     this.openFormBtn.style.display = 'none';
     this.form.style.display = 'block';
   }
-  closeForm() {
-    this.nameInput.value = '';
-    this.emailInput.value = '';
-    this.addressInput.value = '';
+  removeInputClasses() {
     this.nameInput.parentElement.classList.remove('success');
     this.nameInput.parentElement.classList.remove('error');
     this.emailInput.parentElement.classList.remove('success');
     this.emailInput.parentElement.classList.remove('error');
     this.addressInput.parentElement.classList.remove('error');
     this.addressInput.parentElement.classList.remove('success');
+  }
+  clearInputValues() {
+    this.nameInput.value = '';
+    this.emailInput.value = '';
+    this.addressInput.value = '';
+  }
+  closeForm() {
+    this.clearInputValues();
+    this.removeInputClasses();
     this.openFormBtn.style.display = 'block';
     this.form.style.display = 'none';
   }
-  handleNameInput(e) {
-    this.checkNameInput();
+  inputSuccess(input) {
+    input.parentElement.classList.remove('error');
+    input.parentElement.classList.add('success');
   }
-  handleEmailInput(e) {
-    this.checkEmailInput();
-  }
-  handleAddressInput(e) {
-    this.checkAddressInput();
+  inputError(input) {
+    input.parentElement.classList.remove('success');
+    input.parentElement.classList.add('error');
   }
   checkNameInput() {
     if (!Validate.validateName(this.nameInput.value)) {
-      this.nameInput.parentElement.classList.remove('success');
-      this.nameInput.parentElement.classList.add('error');
+      this.inputError(this.nameInput);
       this.inputsData.Name = false;
     } else {
-      this.nameInput.parentElement.classList.remove('error');
-      this.nameInput.parentElement.classList.add('success');
+      this.inputSuccess(this.nameInput);
       this.inputsData.Name = true;
     }
   }
   checkEmailInput() {
     if (!Validate.validateEmail(this.emailInput.value)) {
-      this.emailInput.parentElement.classList.remove('success');
-      this.emailInput.parentElement.classList.add('error');
+      this.inputError(this.emailInput);
       this.inputsData.Email = false;
     } else {
-      this.emailInput.parentElement.classList.remove('error');
-      this.emailInput.parentElement.classList.add('success');
+      this.inputSuccess(this.emailInput);
       this.inputsData.Email = true;
     }
   }
   checkAddressInput() {
     if (!Validate.validateAddress(this.addressInput.value)) {
-      this.addressInput.parentElement.classList.remove('success');
-      this.addressInput.parentElement.classList.add('error');
+      this.inputError(this.addressInput);
       this.inputsData.Address = false;
     } else {
-      this.addressInput.parentElement.classList.remove('error');
-      this.addressInput.parentElement.classList.add('success');
+      this.inputSuccess(this.addressInput);
       this.inputsData.Address = true;
     }
   }
   async handleFormSubmit(e) {
     e.preventDefault();
+
     this.checkNameInput();
     this.checkEmailInput();
     this.checkAddressInput();
+
     for (let inputData in this.inputsData) {
       if (!this.inputsData[inputData]) {
         msg.error(`${inputData} is not correct`);
       }
     }
+
     if (Object.values(this.inputsData).every((value) => value)) {
       const users = await User.getUsers();
+
       for (let user of users) {
         if (
           user.name === this.nameInput.value.trim() &&
@@ -117,14 +120,17 @@ class Form {
           return;
         }
       }
+
       const newUser = await User.createUser({
         name: this.nameInput.value.trim(),
         emailAddress: this.emailInput.value.trim(),
         address: this.addressInput.value.trim(),
       });
+
       this.table.addNewUserToDOM(newUser);
-      msg.success('Successfully made a new user!');
       this.closeForm();
+
+      msg.success('Successfully made a new user!');
     }
   }
 }
