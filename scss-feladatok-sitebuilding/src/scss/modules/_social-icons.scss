@@ -1,0 +1,38 @@
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+
+  @include atLarge {
+    margin-top: 2.5rem;
+  }
+
+  & .social-icon {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    color: #fff;
+    margin-right: 0.5rem;
+    opacity: 0.9;
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    &--twitter {
+      background-color: #1da1f2;
+    }
+
+    &--facebook {
+      background-color: #3b5998;
+    }
+    &--linkedin {
+      background-color: #0a66c2;
+    }
+  }
+}

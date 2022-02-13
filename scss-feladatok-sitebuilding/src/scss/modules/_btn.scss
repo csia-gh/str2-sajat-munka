@@ -1,0 +1,28 @@
+.btn {
+  cursor: pointer;
+  transition: all $transitionTime;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  border-radius: 50rem;
+  color: #fff;
+  display: inline-block;
+
+  &:hover {
+    background-color: #fdcc52;
+    border-color: #fdcc52;
+  }
+
+  &--lg {
+    padding: 1rem 2.2rem;
+  }
+
+  &--lg-from-lg {
+    @include atLarge {
+      padding: 1rem 2.2rem;
+    }
+  }
+}

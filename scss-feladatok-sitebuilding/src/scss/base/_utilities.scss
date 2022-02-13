@@ -1,0 +1,14 @@
+.text-center {
+  text-align: center;
+}
+
+.text-lg-left {
+  @include atLarge {
+    text-align: left;
+  }
+}
+.text-lg-right {
+  @include atLarge {
+    text-align: right;
+  }
+}

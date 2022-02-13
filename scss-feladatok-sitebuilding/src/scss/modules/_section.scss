@@ -1,0 +1,76 @@
+.section {
+  padding: 3.5rem 0;
+
+  @include atLarge {
+    padding: 8rem 0;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: $darkTextColor;
+
+    @include atLarge {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &--md {
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+
+      @include atLarge {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    &--white {
+      color: #fff;
+    }
+
+    &--left {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    color: $darkTextColor;
+
+    @include atLarge {
+      max-width: none;
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+    }
+
+    &--sm-pb-from-lg {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &--discover {
+    background: $sectionDiscoverGradient;
+  }
+  &--unlimited-features {
+    background: $sectionUnlimitedFeaturesBg;
+  }
+  &--get-started {
+    background: $sectionLetsGetStartedGradient,
+      url($sectionLetsGetStartedUrl) no-repeat center center/cover;
+  }
+  &--friends {
+    background: $sectionFriendsBg;
+  }
+}

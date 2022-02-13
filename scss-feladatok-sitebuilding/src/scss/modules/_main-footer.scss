@@ -1,0 +1,14 @@
+.main-footer {
+  padding: 3rem 0;
+  text-align: center;
+  background-color: #222222;
+  color: #636463;
+
+  & a {
+    cursor: pointer;
+  }
+
+  & p {
+    margin-bottom: 1rem;
+  }
+}

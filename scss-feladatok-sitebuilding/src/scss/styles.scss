@@ -1,0 +1,19 @@
+@import 'base/variables';
+@import 'base/global';
+@import 'base/mixins';
+@import 'base/utilities';
+@import 'modules/navbar';
+@import 'modules/btn';
+@import 'modules/p-i-p';
+@import 'modules/badge';
+@import 'modules/separator';
+@import 'modules/heart';
+@import 'modules/tooltip';
+@import 'modules/social-icons';
+@import 'modules/main-footer';
+@import 'modules/main-header';
+@import 'modules/section';
+@import 'modules/boxes';
+@import 'modules/modal';
+
+// sass --watch src/scss/styles.scss dist/css/styles.css

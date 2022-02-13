@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'Catamaran';
+  src: url('../fonts/catamaran/Catamaran-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../fonts/lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Muli';
+  src: url('../fonts/muli/Mulish-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+}
+p {
+  font-family: 'Muli', Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}

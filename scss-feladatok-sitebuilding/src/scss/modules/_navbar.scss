@@ -1,0 +1,141 @@
+.navbar {
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: #fff;
+  max-height: 62px;
+  overflow: hidden;
+  transition: max-height $transitionTime,
+    background-color $transitionTime ease-in-out;
+
+  @include atLarge {
+    height: 72px;
+    background-color: transparent;
+  }
+
+  &--is-expanded {
+    max-height: 500px;
+  }
+
+  &__brand {
+    font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    transition: color 0.3s;
+    font-size: 1.5rem;
+    color: #000;
+    display: inline-block;
+    margin-top: 4px;
+    display: inline-block;
+
+    &:hover {
+      color: #e7ac4e;
+    }
+
+    @include atLarge {
+      font-size: 2rem;
+      margin-top: -2px;
+
+      color: #e7ac4e;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &__toggler {
+    float: right;
+    font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #000;
+    border-color: #000;
+    border-width: 1px;
+    border-radius: 0.25rem;
+    height: 28px;
+    padding: 0.25rem 0.75rem;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    margin-top: 6px;
+    cursor: pointer;
+    & i {
+      margin-left: 5px;
+    }
+
+    @include atLarge {
+      display: none;
+    }
+  }
+
+  &__navs {
+    opacity: 0;
+    transform: translateY(-300px);
+    transition: opacity $transitionTime, transform $transitionTime 1s;
+    z-index: -10;
+    position: relative;
+    padding-top: 10px;
+
+    &--is-visible {
+      transition: opacity $transitionTime;
+      z-index: 1;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @include atLarge {
+      transition: none;
+      float: right;
+
+      opacity: 1;
+      z-index: 1;
+      transform: translateY(0);
+
+      display: flex;
+      padding-top: 0;
+      margin-top: 8px;
+    }
+  }
+
+  &__link {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    transition: color 0.3s;
+    font-size: 0.8rem;
+    color: #000;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    display: block;
+
+    &:hover {
+      color: #fdcc52;
+    }
+
+    @include atLarge {
+      padding: 8px;
+      font-size: 1rem;
+      margin-top: -2px;
+
+      color: rgba(255, 255, 255, 0.7);
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &--show-bg {
+    @include atLarge {
+      background-color: #fff;
+
+      .navbar__link {
+        color: #000;
+
+        &:hover {
+          color: #fdcc52;
+        }
+      }
+    }
+  }
+}

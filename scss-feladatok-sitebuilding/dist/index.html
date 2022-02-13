@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>scss-feladatok-sitebuilding</title>
+  </head>
+  <body>
+    <nav id="mainNav" class="navbar">
+      <div class="container">
+        <a class="navbar__brand" href="#">Start Bootstrap</a>
+        <button class="navbar__toggler" type="button">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="navbar__navs">
+          <li class="navbar__item">
+            <a class="navbar__link" href="#discover">Download</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#unlimitedFeatures">Features</a>
+          </li>
+          <li class="navbar__item">
+            <a class="navbar__link" href="#friends">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header id="mainHeader" class="main-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="main-header__left">
+              <h1 class="main-header__title">
+                New Age is an app landing page that will help you beautifully
+                showcase your new mobile app, or anything else!
+              </h1>
+              <a href="#" class="btn btn--lg-from-lg">Start now for free!</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-i-p">
+              <img src="./img/phone.png" alt="Phone frame" class="p-i-p__frame" />
+              <img
+                src="./img/demo-screen-1.jpg"
+                alt="Phone screen"
+                class="p-i-p__screen"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="discover" class="section section--discover">
+        <div class="container">
+          <h2 class="section__title">Discover what all the buzz is about!</h2>
+          <p class="section__text">
+            Our app is available on any mobile device! Download now to get started!
+          </p>
+          <div class="row text-center">
+            <div class="col-lg-6 text-lg-right">
+              <a href="https://play.google.com/store" target="_blank">
+                <img
+                  class="badge"
+                  src="./img/google-play-badge.svg"
+                  alt="google-play badge"
+                />
+              </a>
+            </div>
+            <div class="col-lg-6 text-lg-left">
+              <a href="https://www.apple.com/hu/app-store/" target="_blank">
+                <img
+                  class="badge"
+                  src="./img/app-store-badge.svg"
+                  alt="app-store badge"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="unlimitedFeatures" class="section section--unlimited-features">
+        <div class="container">
+          <h2 class="section__title section__title--md">
+            Unlimited Features, Unlimited Fun
+          </h2>
+          <p class="section__text section__text--sm-pb-from-lg">
+            Check out what you can do with this app theme!
+          </p>
+          <hr class="separator" />
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="p-i-p">
+                <img src="./img/phone.png" alt="Phone frame" class="p-i-p__frame" />
+                <img
+                  src="./img/demo-screen-1.jpg"
+                  alt="Phone screen"
+                  class="p-i-p__screen"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="boxes">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="box">
+                      <div class="box__icon">
+                        <i class="fas fa-mobile-alt fa-2x"></i>
+                      </div>
+                      <h3 class="box__title">Device Mockups</h3>
+                      <p class="box__text">
+                        Ready to use HTML/CSS device mockups, no Photoshop required!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="box">
+                      <div class="box__icon">
+                        <i class="fas fa-camera fa-2x"></i>
+                      </div>
+                      <h3 class="box__title">Flexible Use</h3>
+                      <p class="box__text">
+                        Put an image, video, animation, or anything else in the
+                        screen!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="box">
+                      <div class="box__icon">
+                        <i class="fas fa-gift fa-2x"></i>
+                      </div>
+                      <h3 class="box__title">Free to Use</h3>
+                      <p class="box__text">
+                        As always, this theme is free to download and use for any
+                        purpose!
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="box">
+                      <div class="box__icon">
+                        <i class="fas fa-unlock-alt fa-2x"></i>
+                      </div>
+                      <h3 class="box__title">Open Source</h3>
+                      <p class="box__text">
+                        Since this theme is MIT licensed, you can use it
+                        commercially!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stopWaiting" class="section section--get-started">
+        <div class="container">
+          <h2 class="section__title section__title--white section__title--left">
+            Stop waiting. <br />
+            Start building.
+          </h2>
+          <a href="#" class="btn btn--lg-from-lg">Let's get started!</a>
+        </div>
+      </section>
+
+      <section id="friends" class="section section--friends">
+        <h2 class="section__title section__title--md">
+          We <span class="heart">❤</span> new friends!
+        </h2>
+        <div class="social-icons">
+          <a
+            href="#"
+            title="Twitter"
+            class="social-icon social-icon--twitter tooltip"
+          >
+            <i class="fab fa-twitter fa-2x"></i>
+            <span class="tooltip__text">to twitter</span>
+          </a>
+          <a
+            href="#"
+            title="Facebook"
+            class="social-icon social-icon--facebook tooltip"
+          >
+            <i class="fab fa-facebook-f fa-2x"></i>
+            <span class="tooltip__text">to facebook</span>
+          </a>
+          <a
+            href="#"
+            title="Linkedin"
+            class="social-icon social-icon--linkedin tooltip"
+          >
+            <i class="fab fa-linkedin fa-2x"></i>
+            <span class="tooltip__text">to linkedin</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container">
+        <p>&copy; Your Website 2022. All Rights Reserved.</p>
+        <div>
+          <a data-toggle="modal" data-target="#modalPrivacy">Privacy</a>
+          <a data-toggle="modal" data-target="#modalTerms">Terms</a>
+          <a data-toggle="modal" data-target="#modalFAQ">FAQ</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="modalPrivacy" class="modal" tabindex="-1">
+      <div class="modal__header">
+        <h2 class="modal__title">Privacy</h2>
+        <button type="button" class="modal__close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, officiis
+          fugiat quia neque et culpa. Alias expedita atque ut ullam placeat, et
+          sapiente sed incidunt voluptate, voluptas quaerat necessitatibus. Enim
+          facilis, veritatis, quaerat architecto cum fugiat quam fuga minus ut modi
+          rem maxime? Amet itaque voluptas repudiandae praesentium fuga tenetur magni
+          reiciendis repellat sed cum libero obcaecati dolores voluptatibus
+          dignissimos exercitationem ad hic, recusandae, et in rem maiores!
+          Necessitatibus voluptate hic alias doloribus reprehenderit reiciendis
+          temporibus inventore exercitationem magnam! Consequuntur, excepturi beatae
+          laborum recusandae necessitatibus odit at temporibus repellat tempore velit
+          magni fugiat vero ipsa, sed optio, quisquam commodi exercitationem.
+        </p>
+      </div>
+      <div class="modal__footer">
+        <button class="modal__close-btn">Close</button>
+      </div>
+    </div>
+
+    <div id="modalTerms" class="modal" tabindex="-1">
+      <div class="modal__header">
+        <h2 class="modal__title">Terms</h2>
+        <button type="button" class="modal__close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, officiis
+          fugiat quia neque et culpa. Alias expedita atque ut ullam placeat, et
+          sapiente sed incidunt voluptate, voluptas quaerat necessitatibus. Enim
+          facilis, veritatis, quaerat architecto cum fugiat quam fuga minus ut modi
+          rem maxime? Amet itaque voluptas repudiandae praesentium fuga tenetur magni
+          reiciendis repellat sed cum libero obcaecati dolores voluptatibus
+          dignissimos exercitationem ad hic, recusandae, et in rem maiores!
+          Necessitatibus voluptate hic alias doloribus reprehenderit reiciendis
+          temporibus inventore exercitationem magnam! Consequuntur, excepturi beatae
+          laborum recusandae necessitatibus odit at temporibus repellat tempore velit
+          magni fugiat vero ipsa, sed optio, quisquam commodi exercitationem.
+        </p>
+      </div>
+      <div class="modal__footer">
+        <button class="modal__close-btn">Close</button>
+      </div>
+    </div>
+
+    <div id="modalFAQ" class="modal" tabindex="-1">
+      <div class="modal__header">
+        <h2 class="modal__title">FAQ</h2>
+        <button type="button" class="modal__close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, officiis
+          fugiat quia neque et culpa. Alias expedita atque ut ullam placeat, et
+          sapiente sed incidunt voluptate, voluptas quaerat necessitatibus. Enim
+          facilis, veritatis, quaerat architecto cum fugiat quam fuga minus ut modi
+          rem maxime? Amet itaque voluptas repudiandae praesentium fuga tenetur magni
+          reiciendis repellat sed cum libero obcaecati dolores voluptatibus
+          dignissimos exercitationem ad hic, recusandae, et in rem maiores!
+          Necessitatibus voluptate hic alias doloribus reprehenderit reiciendis
+          temporibus inventore exercitationem magnam! Consequuntur, excepturi beatae
+          laborum recusandae necessitatibus odit at temporibus repellat tempore velit
+          magni fugiat vero ipsa, sed optio, quisquam commodi exercitationem.
+        </p>
+      </div>
+      <div class="modal__footer">
+        <button class="modal__close-btn">Close</button>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/mobileMenu.js"></script>
+    <script src="./js/modal.js"></script>
+  </body>
+</html>

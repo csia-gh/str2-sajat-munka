@@ -1,0 +1,40 @@
+.boxes {
+  margin-top: 4rem;
+
+  @include atLarge {
+    margin-top: 2rem;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem auto 3rem;
+
+    &__icon {
+      color: #a5356a;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #a5356a;
+      margin-bottom: 1.5rem;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: $darkTextColor;
+    }
+
+    &__text {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: $textMutedColor;
+    }
+  }
+}
