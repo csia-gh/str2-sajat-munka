@@ -54,6 +54,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  font-family: inherit;
 }
 
 #output.too-long {

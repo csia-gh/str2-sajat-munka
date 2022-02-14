@@ -123,6 +123,8 @@ const decSepWasClicked = () => {
     selectedNum1 = '0.';
   } else if (!selectedOperator && !selectedNum1.includes('.')) {
     selectedNum1 += '.';
+  } else if (selectedNum1 && selectedOperator && selectedNum2 === '') {
+    selectedNum2 += '0.';
   } else if (
     selectedNum1 !== '' &&
     selectedOperator &&
