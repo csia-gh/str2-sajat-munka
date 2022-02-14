@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>To-do</title>
+  </head>
+  <body>
+    <h1>Daily To-Do list manager</h1>
+
+    <div class="todo-list">
+      <div class="dates">
+        <div class="day">Thursday</div>
+        <div class="date">10-15-2020</div>
+      </div>
+      <div class="new-todo">
+        <input type="text" placeholder="Take the garbage out" id="newTodoInput" />
+        <button id="newTodoBtn">+</button>
+      </div>
+      <div class="pending-items">
+        <p class="text"></p>
+      </div>
+      <div class="completed-tasks">
+        <p class="text"></p>
+      </div>
+      <div class="controls">
+        <span id="hideComplete">Hide Complete</span>
+        <span id="clearAll">Clear All</span>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
