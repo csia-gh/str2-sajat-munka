@@ -15,6 +15,8 @@ js-5-feladatok-zaro-projekt: https://js-5-feladatok-zaro-projekt.netlify.app/ (r
 
 js-4-feladatok-game-of-thrones: https://got-js4.netlify.app/
 
+js-3-feladatok-slider: https://js-3-feladatok-slider.netlify.app/
+
 js-3-feladatok-todo: https://js-3-feladatok-todo.netlify.app/
 
 js-3-feladatok-matching-game: https://js-3-feladatok-matching-game.netlify.app/
