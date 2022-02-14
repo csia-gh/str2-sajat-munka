@@ -95,53 +95,54 @@ h1 {
 }
 
 .todo-item {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   height: 40px;
   display: flex;
   align-items: center;
   margin-bottom: 5px;
+  padding-left: 10px;
 }
 
 .todo-item > span {
   width: 0%;
 }
 
-.todo-item label {
+.todo-item .todo {
   padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  padding-left: 0px;
   width: 100%;
-  flex: 1;
+  height: 100%;
 }
-.todo-item:hover label {
+
+.todo-item:hover .todo {
   width: 90%;
 }
 
-.todo-item > span {
+.todo-item .delete {
   background: red;
   color: #fff;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: width 0.1s ease-in;
+  transition: all 0.2s ease-in;
   opacity: 0;
 }
 
-.todo-item:hover > span {
+.todo-item:hover .delete {
   width: 10%;
   opacity: 0.6;
 }
-.todo-item:hover > span:hover {
+.todo-item:hover > .delete:hover {
   opacity: 1;
 }
 
-.todo-item > span i {
+i {
   pointer-events: none;
 }
 
-.todo-item input {
+.todo-item .checkbox {
   margin-right: 10px;
 }
 
@@ -153,7 +154,7 @@ h1 {
   color: #b9b9b9;
 }
 
-.completed-tasks .todo-item label {
+.completed-tasks .todo-item .todo {
   text-decoration: line-through;
 }
 .completed-tasks.hide {
@@ -216,14 +217,3 @@ h1 {
     transform: rotate(0deg);
   }
 }
-
-/* @media only screen and (max-width: 600px) {
-  .todo-item > span {
-    width: 10%;
-    opacity: 0.6;
-  }
-
-  .todo-item label {
-    width: 90%;
-  }
-} */

@@ -110,7 +110,7 @@ setTodoStatusInLocalStorage = (todoId, status) => {
 todoStatusChanged = (event) => {
   const todoItemCheckbox = event.target;
   const isChecked = todoItemCheckbox.checked;
-  const todoItemDiv = todoItemCheckbox.parentElement.parentElement;
+  const todoItemDiv = todoItemCheckbox.parentElement;
   const todoId = todoItemDiv.dataset.id;
 
   const modifiedTodo = setTodoStatusInLocalStorage(todoId, isChecked);
@@ -125,26 +125,21 @@ const getNewTodoItem = (todo) => {
   const div = document.createElement('div');
   div.setAttribute('data-id', todo.id);
   div.classList.add('todo-item');
-  const label = document.createElement('label');
   const input = document.createElement('input');
+  input.classList.add('checkbox');
   input.setAttribute('type', 'checkbox');
-  input.addEventListener('click', todoStatusChanged);
+  input.addEventListener('input', todoStatusChanged);
   if (todo.completed) input.checked = true;
   const span1 = document.createElement('span');
   span1.classList.add('todo');
   span1.textContent = todo.value;
   const span2 = document.createElement('span');
-  span2.classList.add('show-trashcan');
-  span2.addEventListener('click', (event) => event.preventDefault());
-  const span3 = document.createElement('span');
-  span3.classList.add('delete');
-  span3.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-  span3.addEventListener('click', deleteTodo);
-  label.appendChild(input);
-  label.appendChild(span1);
-  label.appendChild(span2);
-  div.appendChild(label);
-  div.appendChild(span3);
+  span2.classList.add('delete');
+  span2.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+  span2.addEventListener('click', deleteTodo);
+  div.appendChild(input);
+  div.appendChild(span1);
+  div.appendChild(span2);
   return div;
 };
 
