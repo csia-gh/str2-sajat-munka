@@ -128,19 +128,23 @@ const getNewTodoItem = (todo) => {
   const label = document.createElement('label');
   const input = document.createElement('input');
   input.setAttribute('type', 'checkbox');
-  input.addEventListener('input', todoStatusChanged);
+  input.addEventListener('click', todoStatusChanged);
   if (todo.completed) input.checked = true;
   const span1 = document.createElement('span');
   span1.classList.add('todo');
   span1.textContent = todo.value;
   const span2 = document.createElement('span');
-  span2.classList.add('delete');
-  span2.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-  span2.addEventListener('click', deleteTodo);
+  span2.classList.add('show-trashcan');
+  span2.addEventListener('click', (event) => event.preventDefault());
+  const span3 = document.createElement('span');
+  span3.classList.add('delete');
+  span3.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+  span3.addEventListener('click', deleteTodo);
   label.appendChild(input);
   label.appendChild(span1);
+  label.appendChild(span2);
   div.appendChild(label);
-  div.appendChild(span2);
+  div.appendChild(span3);
   return div;
 };
 
