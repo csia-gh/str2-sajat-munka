@@ -11,7 +11,7 @@ bs-feladatok-login: https://bs-feladatok-login.netlify.app/
 
 bs-feladatok-cards: https://bs-feladatok-cards.netlify.app/
 
-js-5-feladatok-zaro-projekt: https://js-5-feladatok-zaro-projekt.netlify.app/ (rá kell frissíteni 2-3x, mert a heroku server 30 perc után inaktíválja magát)
+js-5-feladatok-zaro-projekt: https://js-5-feladatok-zaro-projekt.netlify.app/ 
 
 js-4-feladatok-game-of-thrones: https://got-js4.netlify.app/
 
