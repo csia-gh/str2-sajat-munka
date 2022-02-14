@@ -210,6 +210,8 @@ const clearAll = () => {
   clearPendingItemsFromView();
   clearcompletedTasksFromView();
   setParagraphs();
+  hideCompleteBtn.style.display = 'none';
+  clearAllBtn.style.display = 'none';
 };
 
 clearAllBtn.addEventListener('click', clearAll);
