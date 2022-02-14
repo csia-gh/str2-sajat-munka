@@ -1,6 +1,6 @@
 # str2-sajat-munka
 
-
+scss-feladatok-sitebuilding: https://scss-feladatok-sitebuilding.netlify.app/
 
 bs-feladatok-sitebuilding: https://bs-feladatok-sitebuilding.netlify.app/
 
