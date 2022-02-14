@@ -77,6 +77,12 @@ setCompletedTasksParagraph = () => {
     completedTasksParagraph.textContent = `Completed tasks: ${percentage.toFixed(
       0
     )}%`;
+    hideCompleteBtn.style.display = 'block';
+    clearAllBtn.style.display = 'block';
+  } else {
+    completedTasksParagraph.textContent = '';
+    hideCompleteBtn.style.display = 'none';
+    clearAllBtn.style.display = 'none';
   }
 };
 
