@@ -8,8 +8,8 @@ let hasStarted = false;
 let flippedCards = new Set();
 
 const startTimer = () => {
-  let totalElapsedSeconds = 1;
-  UItimer.textContent = '00:01';
+  let totalElapsedSeconds = 0;
+  UItimer.textContent = '00:00';
   timer = setInterval(() => {
     totalElapsedSeconds += 1;
     let minutes = Math.floor(totalElapsedSeconds / 60);
@@ -58,6 +58,12 @@ const spinBack = (callback) => {
   }, 20);
 };
 
+const stripMatchClassOnCards = () => {
+  cards.forEach((card) => {
+    card.classList.remove('match');
+  });
+};
+
 const eog = () => {
   endTimer();
 
@@ -68,6 +74,7 @@ const eog = () => {
       document.body.classList.remove('animate__heartBeat');
       setTimeout(resetCards, 500);
     });
+    stripMatchClassOnCards();
   }, 4000);
 };
 
