@@ -97,6 +97,7 @@ export class Slider {
         : parsedCurrentIndicatorNum + 1;
     document.querySelector('.arrow--left').setAttribute('data-val', prev);
     document.querySelector('.arrow--right').setAttribute('data-val', next);
+    console.log('prev', prev, 'next', next);
   }
 
   arrowWasClicked(e) {
@@ -114,11 +115,12 @@ export class Slider {
     const indicatorNum = e.target.dataset.num;
     this.setIndicatorClass(e.target);
     const leftValue = indicatorNum === '0' ? '' : `-${indicatorNum}00%`;
+    this.setArrowsDataset(this.getCurrentIndicatorDataNumFromLeftValue(leftValue));
     this.slide(leftValue, true);
     this.launchSlider();
   }
 
-  getIndicatorsElements() {
+  getIndicatorElements() {
     let indicators = '';
     this.imgs.forEach((img, index) => {
       indicators += `<span data-num="${index}" class="indicator ${
@@ -160,7 +162,7 @@ export class Slider {
         ${this.getImgContainerElements()}
       </div>
       <div class='slider__indicators'>
-        ${this.getIndicatorsElements()}
+        ${this.getIndicatorElements()}
       </div>
     </div>
   `;
